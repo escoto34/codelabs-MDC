@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'colors.dart';
+
+import 'models/product.dart';
+import 'models/products_repository.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -26,14 +31,16 @@ class LoginPageState extends State<LoginPage> {
                   horizontal: 20,
                 ), // Padding lateral para que no toque los bordes
                 children: [
-                  Image.asset('assets/diamond.png', height: 60,),
-      
-                  const SizedBox(height: 16.0),
-                  const Text(
-                    "SHRINE",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
+                  Column(
+  children: <Widget>[
+    Image.asset('assets/diamond.png'),
+    const SizedBox(height: 16.0),
+    Text(
+      'SHRINE',
+      style: Theme.of(context).textTheme.headlineMedium,
+    ),
+  ],
+),
                   const SizedBox(height: 120),
                   // TODO: Remove filled: true values (103)
 
