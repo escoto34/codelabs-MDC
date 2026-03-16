@@ -19,7 +19,6 @@ class HomePageState extends State<HomePage> {
       body: Center(
         child: Text('You did it!'),
       ),
-      // TODO: Set resizeToAvoidBottomInset (101)
       resizeToAvoidBottomInset: false,
     );
   }
