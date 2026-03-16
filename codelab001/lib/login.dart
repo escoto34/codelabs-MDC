@@ -26,10 +26,8 @@ class LoginPageState extends State<LoginPage> {
                   horizontal: 20,
                 ), // Padding lateral para que no toque los bordes
                 children: [
-                  Image.network(
-                    "https://images.vexels.com/media/users/3/151691/isolated/preview/2dcb5661394335eaa59671bad4e24eb4-icono-de-diamante-aislado.png",
-                    height: 60,
-                  ),
+                  Image.asset('assets/diamond.png', height: 60,),
+      
                   const SizedBox(height: 16.0),
                   const Text(
                     "SHRINE",
