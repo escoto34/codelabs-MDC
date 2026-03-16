@@ -54,84 +54,55 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
-
   @override
-Widget build(BuildContext context) {
-  return Scaffold(
-    body: Center(
-      child: Column(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-    Expanded(
-      child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 20), // Padding lateral para que no toque los bordes
-        children: [
-          const SizedBox(height: 100),
-          Image.network(
-            "https://images.vexels.com/media/users/3/151691/isolated/preview/2dcb5661394335eaa59671bad4e24eb4-icono-de-diamante-aislado.png",
-            height: 60,
-          ),
-          const Text(
-            "SHRINE",
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 50),
-          
-          // --- Primer Campo de Texto ---
-          Center(
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 224, 224, 224),
-                border: Border.all(color: Colors.black, width: 3.0),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              height: 70,
-              width: 370,
-              child: const Center( // Center para alinear el TextField verticalmente
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Usuario",
-                    border: InputBorder.none, // Quitamos el borde por defecto del TextField
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 80.0),
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                ), // Padding lateral para que no toque los bordes
+                children: [
+                  Image.network(
+                    "https://images.vexels.com/media/users/3/151691/isolated/preview/2dcb5661394335eaa59671bad4e24eb4-icono-de-diamante-aislado.png",
+                    height: 60,
                   ),
-                ),
-              ),
-            ),
-          ),
-          
-          const SizedBox(height: 30),
+                  const SizedBox(height: 16.0),
+                  const Text(
+                    "SHRINE",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 120),
 
-          // --- Segundo Campo de Texto ---
-          Center(
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 224, 224, 224),
-                border: Border.all(color: Colors.black, width: 3.0),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              height: 70,
-              width: 370,
-              child: const Center(
-                child: TextField(
-                  obscureText: true, // Para que sea tipo contraseña
-                  decoration: InputDecoration(
-                    hintText: "Contraseña",
-                    border: InputBorder.none,
+                  // --- Primer Campo de Texto ---
+                  TextField(
+                    decoration: const InputDecoration(
+                      filled: true,
+                      labelText: 'Username',
+                    ),
                   ),
-                ),
+                  // spacer
+                  const SizedBox(height: 12.0),
+                  // [Password]
+                  TextField(
+                    decoration: const InputDecoration(
+                      filled: true,
+                      labelText: 'Password',
+                    ),
+                    obscureText: true,
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ),
-  ],
-),
-    ),
-    
-  );
-}
+    );
+  }
 }
