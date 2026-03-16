@@ -12,9 +12,13 @@ class HomePage extends StatefulWidget {
   HomePageState createState() => HomePageState();
 }
 
+
 class HomePageState extends State<HomePage> {
   @override
-  List<Card> _buildGridCards(BuildContext context) {
+  
+
+  Widget build(BuildContext context) {
+    List<Card> _buildGridCards(BuildContext context) {
     List<Product> products = ProductsRepository.loadProducts(Category.all);
 
     if (products.isEmpty) {
@@ -26,12 +30,12 @@ class HomePageState extends State<HomePage> {
       locale: Localizations.localeOf(context).toString(),
     );
 
+    // ... (tus imports se mantienen igual)
+
     return products.map((product) {
       return Card(
         clipBehavior: Clip.antiAlias,
-        // TODO: Adjust card heights (103)
         child: Column(
-          // TODO: Center items on the card (103)
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             AspectRatio(
@@ -46,20 +50,22 @@ class HomePageState extends State<HomePage> {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
                 child: Column(
-                  // TODO: Align labels to the bottom and center (103)
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  // TODO: Change innermost Column (103)
+                  // SOLUCIÓN: Solo una lista de children
                   children: <Widget>[
-                    // TODO: Handle overflowing labels (103)
                     Text(
                       product.name,
-                      style: theme.textTheme.titleLarge,
+                      // Cambiado de .button a .labelLarge (o titleLarge)
+                      style: theme.textTheme.labelLarge,
+                      softWrap: false,
+                      overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                     ),
-                    const SizedBox(height: 8.0),
+                    const SizedBox(height: 4.0),
                     Text(
                       formatter.format(product.price),
-                      style: theme.textTheme.titleSmall,
+                      // Cambiado de .caption a .bodySmall
+                      style: theme.textTheme.bodySmall,
                     ),
                   ],
                 ),
@@ -69,9 +75,10 @@ class HomePageState extends State<HomePage> {
         ),
       );
     }).toList();
-  }
+  
 
-  Widget build(BuildContext context) {
+  // ... (el resto del build del Scaffold está bien)
+  }
     return Scaffold(
       // TODO: Add app bar (102)
       appBar: AppBar(

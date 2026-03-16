@@ -36,10 +36,40 @@ ThemeData _buildShrineTheme() {
       secondary: kShrineBrown900,
       error: kShrineErrorRed,
     ),
-    // TODO: Add the text themes (103)
+    textTheme: _buildShrineTextTheme(base.textTheme),
+    textSelectionTheme: const TextSelectionThemeData(
+      selectionColor: kShrinePink100,
+    ),
     // TODO: Add the icon themes (103)
     // TODO: Decorate the inputs (103)
   );
+}
+
+TextTheme _buildShrineTextTheme(TextTheme base) {
+  return base
+      .copyWith(
+        // Antes headline5
+        headlineMedium: base.headlineMedium!.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
+        // Antes headline6
+        titleLarge: base.titleLarge!.copyWith(fontSize: 18.0),
+        // Antes caption
+        bodySmall: base.bodySmall!.copyWith(
+          fontWeight: FontWeight.w400,
+          fontSize: 14.0,
+        ),
+        // Antes bodyText1
+        bodyLarge: base.bodyLarge!.copyWith(
+          fontWeight: FontWeight.w500,
+          fontSize: 16.0,
+        ),
+      )
+      .apply(
+        fontFamily: 'Rubik',
+        displayColor: kShrineBrown900,
+        bodyColor: kShrineBrown900,
+      );
 }
 
 // TODO: Build a Shrine Text Theme (103)
